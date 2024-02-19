@@ -50,5 +50,5 @@ class ProjectService:
         Get all projects.
         :return: List of all projects.
         """
-        return Project.find_all()
-
+        projects = Project.find_all()
+        return [serialize_object(project) for project in projects]
