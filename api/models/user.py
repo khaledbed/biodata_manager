@@ -5,7 +5,8 @@ from api.utils.database import get_database_connection
 class User:
     """User model."""
 
-    def __init__(self, username, email, password):
+    def __init__(self, username, email, password, _id=None):
+        self._id = _id
         self.username = username
         self.email = email
         self.password = password

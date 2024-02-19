@@ -25,7 +25,7 @@ def generate_access_token(user_id):
         'exp': datetime.utcnow() + timedelta(days=1)
     }
     access_token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
-    return access_token.decode('utf-8')
+    return access_token
 
 def decode_access_token(access_token):
     """Decode an access token."""

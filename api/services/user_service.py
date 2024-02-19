@@ -1,5 +1,5 @@
 # api/services/user_service.py
-
+from bson import ObjectId
 from api.models.user import User
 from api.utils.user_authentication import generate_password_hash, verify_password, generate_access_token
 
@@ -26,17 +26,16 @@ class UserService:
         user = User.find_by_username(username)
         if user and verify_password(password, user.password):
             # Generate an access token
-            access_token = generate_access_token(user.id)
+            access_token = generate_access_token(user._id)
             return {'access_token': access_token}, 200
         else:
             return {'message': 'Invalid username or password'}, 401
 
     def get_user_details(self, user_id):
         """Get user details."""
-        user = User.find_by_id(user_id)
+        user = User.find_by_id(ObjectId(user_id))
         if user:
             return {
-                'id': user.id,
                 'username': user.username,
                 'email': user.email
             }, 200
