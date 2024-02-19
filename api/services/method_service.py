@@ -1,6 +1,7 @@
 # api/services/method_service.py
-
+from bson import ObjectId
 from api.models.method import Method
+from api.utils.serialization import serialize_object
 
 class MethodService:
     def create_method(self, method_data):
@@ -19,7 +20,8 @@ class MethodService:
         :param method_id: ID of the method to retrieve.
         :return: Retrieved method if found, otherwise None.
         """
-        return Method.find_by_id(method_id)
+        method = Method.find_by_id(ObjectId(method_id))
+        return serialize_object(method)
 
     def update_method(self, method_id, method_data):
         """
@@ -28,10 +30,10 @@ class MethodService:
         :param method_data: New data for updating the method.
         :return: Updated method if successful, otherwise None.
         """
-        method = Method.find_by_id(method_id)
+        method = Method.find_by_id(ObjectId(method_id))
         if method:
             method.update(**method_data)
-        return method
+        return serialize_object(method)
 
     def delete_method(self, method_id):
         """
@@ -39,7 +41,7 @@ class MethodService:
         :param method_id: ID of the method to delete.
         :return: True if deletion was successful, otherwise False.
         """
-        method = Method.find_by_id(method_id)
+        method = Method.find_by_id(ObjectId(method_id))
         if method:
             method.delete()
             return True
@@ -50,5 +52,6 @@ class MethodService:
         Get all methods.
         :return: List of all methods.
         """
-        return Method.find_all()
+        methods = Method.find_all()
+        return [serialize_object(method) for method in methods]
 

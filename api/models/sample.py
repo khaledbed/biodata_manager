@@ -3,7 +3,8 @@
 from api.utils.database import get_database_connection
 
 class Sample:
-    def __init__(self, sample_name, sample_type, metadata, data):
+    def __init__(self, sample_name, sample_type, metadata, data, _id=None):
+        self._id = _id
         self.sample_name = sample_name
         self.sample_type = sample_type
         self.metadata = metadata

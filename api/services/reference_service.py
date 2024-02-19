@@ -1,6 +1,7 @@
 # api/services/reference_service.py
-
+from bson import ObjectId
 from api.models.reference import Reference
+from api.utils.serialization import serialize_object
 
 class ReferenceService:
     def create_reference(self, reference_data):
@@ -19,7 +20,8 @@ class ReferenceService:
         :param reference_id: ID of the reference to retrieve.
         :return: Retrieved reference if found, otherwise None.
         """
-        return Reference.find_by_id(reference_id)
+        reference = Reference.find_by_id(ObjectId(reference_id))
+        return serialize_object(reference) 
 
     def update_reference(self, reference_id, reference_data):
         """
@@ -28,10 +30,10 @@ class ReferenceService:
         :param reference_data: New data for updating the reference.
         :return: Updated reference if successful, otherwise None.
         """
-        reference = Reference.find_by_id(reference_id)
+        reference = Reference.find_by_id(ObjectId(reference_id))
         if reference:
             reference.update(**reference_data)
-        return reference
+        return serialize_object(reference) 
 
     def delete_reference(self, reference_id):
         """
@@ -39,7 +41,7 @@ class ReferenceService:
         :param reference_id: ID of the reference to delete.
         :return: True if deletion was successful, otherwise False.
         """
-        reference = Reference.find_by_id(reference_id)
+        reference = Reference.find_by_id(ObjectId(reference_id))
         if reference:
             reference.delete()
             return True
@@ -50,5 +52,6 @@ class ReferenceService:
         Get all references.
         :return: List of all references.
         """
-        return Reference.find_all()
+        references = Reference.find_all()
+        return [serialize_object(reference) for reference in references]
 

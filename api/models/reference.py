@@ -3,7 +3,8 @@
 from api.utils.database import get_database_connection
 
 class Reference:
-    def __init__(self, title, authors, journal, pub_year):
+    def __init__(self, title, authors, journal, pub_year, _id =None):
+        self._id = _id
         self.title = title
         self.authors = authors
         self.journal = journal
