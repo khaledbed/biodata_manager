@@ -22,7 +22,6 @@ instance/
 # Ignore virtual environment
 venv/
 
-
 # Ignore Node.js build and dependencies
 /node_modules
 
@@ -32,16 +31,6 @@ venv/
 
 # Ignore yarn lock file
 yarn.lock
-
-# Ignore editor-specific files
-.vscode/
-.idea/
-
-# Ignore local development configuration
-.env
-
-# Ignore logs
-*.log
 
 # Ignore compiled JavaScript files
 *.js
