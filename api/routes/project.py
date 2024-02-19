@@ -9,7 +9,14 @@ project_service = ProjectService()
 @project_blueprint.route('/', methods=['GET'])
 def get_all_projects():
     projects = project_service.get_all_projects()
-    return jsonify({'projects': projects})
+    serialized_projects = []
+
+    for project in projects:
+        serialized_project = project.__dict__
+        serialized_project['_id'] = str(project._id)
+        serialized_projects.append(serialized_project)
+
+    return jsonify({'projects': serialized_projects})
 
 @project_blueprint.route('/<project_id>', methods=['GET'])
 def get_project(project_id):
