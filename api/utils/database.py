@@ -4,8 +4,8 @@
 import pymongo
 
 # Database connection details
-DATABASE_NAME = "your_database_name"
-DATABASE_URL = "your_database_url"
+DATABASE_NAME = "biodata_manager"
+DATABASE_URL = "mongodb://localhost:27017/biodata_manager"
 
 # Database client instance
 db_client = None
