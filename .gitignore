@@ -1,24 +1,44 @@
-# Ignore Python bytecode files
-*.pyc
+# Ignore Node.js build and dependencies
+/node_modules
 
-# Ignore environment-specific files
-__pycache__
-instance/
+# Ignore production build files
+/build
+/.next
 
-# Ignore system and IDE files
+# Ignore yarn lock file
+yarn.lock
+
+# Ignore editor-specific files
 .vscode/
 .idea/
 
 # Ignore local development configuration
 .env
 
-# Ignore database files
-*.db
-*.sqlite
-
 # Ignore logs
 *.log
 
-# Ignore virtual environment
-venv/
+# Ignore compiled JavaScript files
+*.js
 
+# Ignore automatically generated Ant Design style files
+/src/styles/antd/*.css
+
+# Ignore IDE files
+*.suo
+*.ntvs*
+
+# Ignore temporary files
+*.tmp
+
+# Ignore Mac specific files
+.DS_Store
+
+# Ignore TypeScript configuration file
+tsconfig.json
+
+# Ignore webpack configuration
+webpack.config.js
+
+# Ignore Visual Studio Code settings
+.vscode/
