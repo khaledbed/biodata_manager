@@ -3,7 +3,8 @@
 from api.utils.database import get_database_connection
 
 class Annotation:
-    def __init__(self, content):
+    def __init__(self, content, _id=None):
+        self._id = _id
         self.content = content
 
     def save(self):

@@ -3,7 +3,8 @@
 from api.utils.database import get_database_connection
 
 class Method:
-    def __init__(self, name, description):
+    def __init__(self, name, description, _id=None):
+        self._id = _id
         self.name = name
         self.description = description
 

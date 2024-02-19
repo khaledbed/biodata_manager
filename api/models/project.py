@@ -3,7 +3,8 @@
 from api.utils.database import get_database_connection
 
 class Project:
-    def __init__(self, project_name, project_description, methods_used, samples):
+    def __init__(self, project_name, project_description, methods_used, samples, _id=None):
+        self._id = _id
         self.project_name = project_name
         self.project_description = project_description
         self.methods_used = methods_used

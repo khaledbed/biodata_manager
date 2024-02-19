@@ -8,6 +8,7 @@ from api.routes.method import method_blueprint
 from api.routes.project import project_blueprint
 from api.routes.reference import reference_blueprint
 from api.routes.sample import sample_blueprint
+from api.test.insert_test_data import insert_test_data
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -56,5 +57,6 @@ def register_commands(app):
 
 if __name__ == "__main__":
     app = create_app('development')
+    insert_test_data()
     app.run(debug=True)
 
