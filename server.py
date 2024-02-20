@@ -24,7 +24,7 @@ def create_app(config_name):
 
 
     # Initialize CORS
-    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+    CORS(app, resources={r"/*": {"origins": "http://10.96.10.241:3000"}})
 
 
     # Register blueprints
@@ -67,6 +67,6 @@ def register_commands(app):
 
 if __name__ == "__main__":
     app = create_app('development')
-    #insert_test_data()
-    app.run(debug=True)
+    insert_test_data()
+    app.run(host='10.96.10.241', port=5000, debug=True)
 
