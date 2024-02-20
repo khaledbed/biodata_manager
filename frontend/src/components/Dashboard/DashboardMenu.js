@@ -8,19 +8,18 @@ import {
   InfoCircleOutlined,
   SlidersOutlined,
   BarChartOutlined,
-  FormOutlined // Import the FormOutlined icon
+  DatabaseOutlined,
+  SearchOutlined,
+  PieChartOutlined,
+  EditOutlined
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
 const DashboardMenu = () => {
-  // Get the current location using useLocation hook
   const location = useLocation();
-
-  // Get the path from the location object
   const currentPath = location.pathname;
 
-  // Function to get the default selected key based on the current path
   const getDefaultSelectedKey = () => {
     switch (currentPath) {
       case '/dashboard':
@@ -35,16 +34,16 @@ const DashboardMenu = () => {
         return '5';
       case '/dashboard/references':
         return '6';
-      case '/dashboard/register-dataset': // Add the path for RegisterDatasetForm
+      case '/dashboard/register-dataset':
         return '7';
-      case '/dashboard/metadata-search': // Add the path for MetadataSearch
+      case '/dashboard/metadata-search':
         return '8';
-      case '/dashboard/metadata-visualization': // Add the path for MetadataVisualization
+      case '/dashboard/metadata-visualization':
         return '9';
-      case '/dashboard/metadata-annotation-form': // Add the path for MetadataAnnotationForm
+      case '/dashboard/metadata-annotation-form':
         return '10';
       default:
-        return '1'; // Default to Home if path does not match
+        return '1';
     }
   };
 
@@ -70,17 +69,17 @@ const DashboardMenu = () => {
         <Menu.Item key="6" icon={<BarChartOutlined />}>
           <Link to="/dashboard/references">References</Link>
         </Menu.Item>
-        <Menu.Item key="7" icon={<FormOutlined />}>
-          <Link to="/dashboard/register-dataset">Register Dataset</Link> {/* Add menu item for RegisterDatasetForm */}
+        <Menu.Item key="7" icon={<DatabaseOutlined />}>
+          <Link to="/dashboard/register-dataset">Register Dataset</Link>
         </Menu.Item>
-        <Menu.Item key="8" icon={<FormOutlined />}>
-          <Link to="/dashboard/metadata-search">Metadata Search</Link> {/* Add menu item for MetadataSearch */}
+        <Menu.Item key="8" icon={<SearchOutlined />}>
+          <Link to="/dashboard/metadata-search">Metadata Search</Link>
         </Menu.Item>
-        <Menu.Item key="9" icon={<FormOutlined />}>
-          <Link to="/dashboard/metadata-visualization">Metadata Visualization</Link> {/* Add menu item for MetadataVisualization */}
+        <Menu.Item key="9" icon={<PieChartOutlined />}>
+          <Link to="/dashboard/metadata-visualization">Metadata Visualization</Link>
         </Menu.Item>
-        <Menu.Item key="10" icon={<FormOutlined />}>
-          <Link to="/dashboard/metadata-annotation-form">Metadata Annotation Form</Link> {/* Add menu item for MetadataAnnotationForm */}
+        <Menu.Item key="10" icon={<EditOutlined />}>
+          <Link to="/dashboard/metadata-annotation-form">Metadata Annotation Form</Link>
         </Menu.Item>
       </Menu>
     </Sider>
