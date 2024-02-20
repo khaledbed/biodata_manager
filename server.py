@@ -8,6 +8,7 @@ from api.routes.annotation import annotation_blueprint
 from api.routes.method import method_blueprint
 from api.routes.project import project_blueprint
 from api.routes.reference import reference_blueprint
+from api.routes.dataset import dataset_blueprint
 from api.routes.sample import sample_blueprint
 from api.routes.user import user_blueprint
 from api.test.insert_test_data import insert_test_data
@@ -48,6 +49,7 @@ def register_blueprints(app):
     app.register_blueprint(method_blueprint)
     app.register_blueprint(project_blueprint)
     app.register_blueprint(reference_blueprint)
+    app.register_blueprint(dataset_blueprint)
     app.register_blueprint(sample_blueprint)
     app.register_blueprint(user_blueprint)
 
