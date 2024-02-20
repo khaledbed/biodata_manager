@@ -1,6 +1,7 @@
 # api/app.py
 
 from flask import Flask
+from flask_cors import CORS
 from api.config import Config, DevelopmentConfig, ProductionConfig, TestingConfig
 from api.utils.database import connect_to_database, disconnect_from_database
 from api.routes.annotation import annotation_blueprint
@@ -19,6 +20,11 @@ def create_app(config_name):
         'testing': TestingConfig
     }
     app.config.from_object(config_mapping[config_name])
+
+
+    # Initialize CORS
+    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+
 
     # Register blueprints
     register_blueprints(app)

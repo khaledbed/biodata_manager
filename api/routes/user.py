@@ -31,6 +31,7 @@ def login_user():
         return {'message': 'Username and password are required'}, 400
 
     response, status_code = user_service.authenticate_user(username, password)
+    print(request.json ," ___ ",jsonify(response).json)
     return jsonify(response), status_code
 
 @user_blueprint.route('/profile/<user_id>', methods=['GET'])
