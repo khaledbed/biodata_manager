@@ -32,9 +32,6 @@ venv/
 # Ignore yarn lock file
 yarn.lock
 
-# Ignore compiled JavaScript files
-*.js
-
 # Ignore automatically generated Ant Design style files
 /src/styles/antd/*.css
 
@@ -56,3 +53,13 @@ webpack.config.js
 
 # Ignore Visual Studio Code settings
 .vscode/
+
+# React build output
+/public/
+/build/
+
+# Python Flask instance folder
+instance/
+
+# Python Flask virtual environment
+env/
