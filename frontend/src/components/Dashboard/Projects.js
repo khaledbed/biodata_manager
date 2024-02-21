@@ -120,7 +120,7 @@ const filteredProjects = searchText
             <Table dataSource={filteredProjects} columns={columns} loading={loading} />
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design Dashboard ©2024 Created by MBD Team</Footer>
+        <Footer style={{ textAlign: 'center' }}>BiodAta manAger  ©2024 Created by MBD Team</Footer>
       </Layout>
     </Layout>
   );
