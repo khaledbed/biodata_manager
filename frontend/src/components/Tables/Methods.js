@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Breadcrumb, Table, Space, Button, Input } from 'antd';
-import DashboardMenu from './DashboardMenu'; 
-import { getAllAnnotations } from '../../services/apiService';
+import DashboardMenu from '../Dashboard/DashboardMenu'; 
+import { getAllMethods } from '../../services/apiService';
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;
 
-const Annotations = () => {
-  const [annotations, setAnnotations] = useState([]);
+const Methods = () => {
+  const [methods, setMethods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    fetchAnnotations();
+    fetchMethods();
   }, []);
 
-  const fetchAnnotations = async () => {
+  const fetchMethods = async () => {
     try {
-      const response = await getAllAnnotations();
-      setAnnotations(response.annotations);
+      const response = await getAllMethods();
+      setMethods(response.methods);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching annotations:', error);
+      console.error('Error fetching methods:', error);
     }
   };
 
@@ -29,17 +29,22 @@ const Annotations = () => {
     setSearchText(value);
   };
 
-  const filteredAnnotations = annotations.filter(annotation =>
-    Object.values(annotation).some(value =>
+  const filteredMethods = methods.filter(method =>
+    Object.values(method).some(value =>
       typeof value === 'string' && value.toLowerCase().includes(searchText.toLowerCase())
     )
   );
 
   const columns = [
     {
-      title: 'Content',
-      dataIndex: 'content',
-      key: 'content',
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
     },
     {
       title: 'Actions',
@@ -62,14 +67,14 @@ const Annotations = () => {
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-            <Breadcrumb.Item>Annotations</Breadcrumb.Item>
+            <Breadcrumb.Item>Methods</Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-background dashboard-content">
-            <h2>Annotations</h2>
+            <h2>Methods</h2>
             <div style={{ marginBottom: 16 }}>
-              <Search placeholder="Search annotations" onSearch={handleSearch} enterButton />
+              <Search placeholder="Search methods" onSearch={handleSearch} enterButton />
             </div>
-            <Table dataSource={filteredAnnotations} columns={columns} loading={loading} />
+            <Table dataSource={filteredMethods} columns={columns} loading={loading} />
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>BiodAta manAger  ©2024 Created by MBD Team</Footer>
@@ -78,4 +83,4 @@ const Annotations = () => {
   );
 };
 
-export default Annotations;
+export default Methods;

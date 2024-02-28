@@ -1,0 +1,64 @@
+/* searchablePages.css */
+
+/* Layout styles */
+.page-layout {
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+.content-wrapper {
+    margin: 16px;
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Breadcrumb styles */
+.breadcrumb-wrapper {
+    margin-bottom: 16px;
+}
+
+/* Page title styles */
+.page-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/* Search bar styles */
+.search-bar {
+    margin-bottom: 16px;
+}
+
+/* Card styles */
+.custom-card {
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    background-color: #ffffff;
+    transition: all 0.3s;
+}
+
+/* Card header styles */
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Divider styles */
+.custom-divider {
+    margin: 8px 0;
+    background-color: #ddd;
+}
+
+/* Action buttons section styles */
+.action-buttons {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}

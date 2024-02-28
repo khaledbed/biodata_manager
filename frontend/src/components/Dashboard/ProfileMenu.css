@@ -1,0 +1,83 @@
+.menu-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Profile Menu */
+.profile-menu {
+  width: 220px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.email {
+  color: #888;
+  font-size: 14px;
+}
+
+.profile-info {
+  margin-left: 16px;
+}
+
+.profile-info p {
+  margin: 0;
+}
+
+.profile-menu .ant-dropdown-menu-item a {
+  color: #ffffff; /* White text color */
+}
+
+.profile-menu .ant-dropdown-menu-item:hover,
+.profile-menu .ant-dropdown-menu-item-active {
+  background-color: #333333; /* Darker background color on hover */
+}
+
+.profile-menu .ant-dropdown-menu-item-divider {
+  margin: 8px 0;
+}
+
+.profile-menu .ant-dropdown-menu-item span {
+  margin-left: 8px;
+}
+
+/* Notification Menu */
+.notification-menu {
+  width: 300px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+}
+
+.notification-menu .ant-dropdown-menu-item a {
+  color: #ffffff; /* White text color */
+}
+
+.notification-menu .ant-dropdown-menu-item:hover,
+.notification-menu .ant-dropdown-menu-item-active {
+  background-color: #333333; /* Darker background color on hover */
+}
+
+.notification-menu .ant-dropdown-menu-item-divider {
+  margin: 8px 0;
+}
+
+.notification-menu .ant-dropdown-menu-item span {
+  margin-left: 8px;
+}
