@@ -8,6 +8,10 @@ import Annotations from './components/Searchable/Annotations';
 import Methods from './components/Searchable/Methods';
 import References from './components/Searchable/References';
 import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Dashboard/Profile';
+import Support from './components/Dashboard/SupportPage';
+import ActivityFeed from './components/Dashboard/ActivityFeed';
+import SettingsPage from './components/Dashboard/SettingsPage';
 import RegisterDatasetForm from './components/Dashboard/RegisterDatasetForm';
 import MetadataSearch from './components/Dashboard/MetadataSearch';
 import MetadataVisualization from './components/Dashboard/MetadataVisualization';
@@ -20,6 +24,10 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/help" element={<Support />} />
+        <Route path="/activity" element={<ActivityFeed />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/dashboard/projects" element={<Projects />} /> 
         <Route path="/dashboard/samples" element={<Samples />} /> 
         <Route path="/dashboard/annotations" element={<Annotations />} /> 
@@ -28,7 +36,7 @@ ReactDOM.render(
         <Route path="/dashboard/register-dataset" element={<RegisterDatasetForm />} /> 
         <Route path="/dashboard/metadata-search" element={<MetadataSearch />} /> 
         <Route path="/dashboard/metadata-visualization" element={<MetadataVisualization />} /> 
-        <Route path="/dashboard/metadata-annotation-form" element={<MetadataAnnotationForm />} /> {/* Add route for MetadataAnnotationForm */}
+        <Route path="/dashboard/metadata-annotation-form" element={<MetadataAnnotationForm />} />
       </Routes>
     </Router>
   </React.StrictMode>,

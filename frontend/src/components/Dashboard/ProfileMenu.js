@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Menu, Dropdown } from 'antd';
-import { UserOutlined, LogoutOutlined, SettingOutlined, ProfileOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined, SettingOutlined, ProfileOutlined, BellOutlined, NotificationOutlined, ReadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const ProfileMenu = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -29,12 +30,28 @@ const ProfileMenu = () => {
       </div>
       <Menu.Divider />
       <Menu.Item key="profile">
-        <ProfileOutlined />
-        <span>Profile</span>
+        <Link to="/profile">
+          <ProfileOutlined />
+          <span>Profile</span>
+        </Link>
       </Menu.Item>
       <Menu.Item key="settings">
-        <SettingOutlined />
-        <span>Settings</span>
+        <Link to="/settings">
+          <SettingOutlined />
+          <span>Settings</span>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="activity">
+        <Link to="/activity">
+          <NotificationOutlined />
+          <span>Activity Feed</span>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="help">
+        <Link to="/help">
+          <QuestionCircleOutlined />
+          <span>Help & Support</span>
+        </Link>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="logout" danger icon={<LogoutOutlined />}>
@@ -46,7 +63,7 @@ const ProfileMenu = () => {
   return (
     <Dropdown overlay={menu} trigger={['click']} visible={menuVisible} onVisibleChange={toggleMenu} placement="bottomRight">
       <div className="dashboard-menu profile-dropmenu">
-        <Avatar size={36} icon={<UserOutlined />} style={{ backgroundColor: '#1890ff' }} />
+        <Avatar size={36} icon={<UserOutlined />} style={{ backgroundColor: '#1890ff', cursor: 'pointer' }} />
       </div>
     </Dropdown>
   );
