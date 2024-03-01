@@ -13,9 +13,9 @@ import Support from './components/Tools/SupportPage';
 import ActivityFeed from './components/Tools/ActivityFeed';
 import SettingsPage from './components/Settings/SettingsPage';
 import RegisterDatasetForm from './components/Datasets/RegisterDatasetForm';
-import MetadataSearch from './components/Datasets/MetadataSearch';
-import MetadataVisualization from './components/Datasets/MetadataVisualization';
-import MetadataAnnotationForm from './components/Datasets/MetadataAnnotationForm'; // Import MetadataAnnotationForm
+import MetadataSearch from './components/Metadata/MetadataSearch';
+import MetadataVisualization from './components/Metadata/MetadataVisualization';
+import MetadataAnnotationForm from './components/Metadata/MetadataAnnotationForm'; // Import MetadataAnnotationForm
 import './index.css';
 
 ReactDOM.render(

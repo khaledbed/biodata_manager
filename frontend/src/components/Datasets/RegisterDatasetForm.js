@@ -1,74 +1,95 @@
-// src/components/RegisterDatasetForm.js
-
 import React, { useState } from 'react';
-import { Layout, Breadcrumb, Form, Input, Button, message } from 'antd';
-import DashboardMenu from '../Common/SideMenu';
-import { registerDataset } from '../../services/apiService';
+import { Layout, Breadcrumb, Button, message, Card, Spin, Modal } from 'antd';
+import BasicInformationForm from './BasicInformationForm';
+import FileUploadAndPreview from './FileUploadAndPreview';
+import AdvancedOptions from './AdvancedOptions';
+import DashboardMenu from '../Common/SideMenu'; 
+import DashboardFooter from '../Common/Footer';
+import DashboardHeader from '../Common/Header';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
-const RegisterDatasetForm = () => {
+const RegisterDatasetFormPage = () => {
   const [loading, setLoading] = useState(false);
+  const [confirmModalVisible, setConfirmModalVisible] = useState(false);
 
-  const onFinish = async (values) => {
+  const handleSaveDataset = () => {
     setLoading(true);
-    try {
-      await registerDataset(values);
-      message.success('Dataset created successfully');
-    } catch (error) {
-      message.error('Failed to create dataset');
+    // Example: Perform form validation before saving
+    const basicFormValid = BasicInformationForm.validateFields();
+    const fileUploadFormValid = FileUploadAndPreview.validateFields();
+    const advancedOptionsFormValid = AdvancedOptions.validateFields();
+
+    if (basicFormValid && fileUploadFormValid && advancedOptionsFormValid) {
+      // Example: Simulate dataset saving
+      setTimeout(() => {
+        setLoading(false);
+        setConfirmModalVisible(true);
+        // message.success('Dataset saved successfully');
+      }, 1500);
+    } else {
+      setLoading(false);
+      message.error('Please fill in all required fields');
     }
-    setLoading(false);
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+  const handleClearForm = () => {
+    Modal.confirm({
+      title: 'Clear Form',
+      content: 'Are you sure you want to clear the form? This action cannot be undone.',
+      onOk() {
+        BasicInformationForm.resetFields();
+        FileUploadAndPreview.resetFields();
+        AdvancedOptions.resetFields();
+      }
+    });
+  };
+
+  const handleConfirmModalOk = () => {
+    setConfirmModalVisible(false);
+    // Navigate to another page or continue adding datasets
   };
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <DashboardMenu />
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <DashboardHeader />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
             <Breadcrumb.Item>Register Dataset</Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-background dashboard-content">
-            <h2>Register Dataset</h2>
-            <Form
-              name="register-dataset"
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              layout="vertical"
-            >
-              <Form.Item
-                label="Name"
-                name="name"
-                rules={[{ required: true, message: 'Please enter the dataset name' }]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                label="Description"
-                name="description"
-                rules={[{ required: true, message: 'Please enter the dataset description' }]}
-              >
-                <Input.TextArea />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit" loading={loading}>
-                  Register Dataset
-                </Button>
-              </Form.Item>
-            </Form>
+            <Card title="Register Dataset" style={{ borderRadius: '10px' }}>
+              <BasicInformationForm />
+              <FileUploadAndPreview />
+              <AdvancedOptions />
+              <div style={{ marginTop: '24px', textAlign: 'center' }}>
+                <Button type="primary" onClick={handleSaveDataset} loading={loading}>Save Dataset</Button>
+                <Button style={{ marginLeft: '12px' }} onClick={handleClearForm}>Clear Form</Button>
+              </div>
+              {loading && (
+                <div style={{ marginTop: '24px', textAlign: 'center' }}>
+                  <Spin tip="Saving dataset..." />
+                </div>
+              )}
+            </Card>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>BiodAta manAger  ©2024 Created by MBD Team</Footer>
+        <DashboardFooter />
       </Layout>
+      <Modal
+        title="Dataset Saved"
+        visible={confirmModalVisible}
+        onOk={handleConfirmModalOk}
+        onCancel={() => setConfirmModalVisible(false)}
+      >
+        <p>Your dataset has been saved successfully.</p>
+        <p>What would you like to do next?</p>
+      </Modal>
     </Layout>
   );
 };
 
-export default RegisterDatasetForm;
+export default RegisterDatasetFormPage;
