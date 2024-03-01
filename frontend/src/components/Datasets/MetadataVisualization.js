@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layout, Breadcrumb, Table, Tag } from 'antd';
-import DashboardMenu from './DashboardMenu';
+import DashboardMenu from '../Common/SideMenu';
 import { getAllAnnotations } from '../../services/apiService';
 
 const { Header, Content, Footer } = Layout;

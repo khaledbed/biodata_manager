@@ -7,9 +7,9 @@ import {
   AlertOutlined,
 } from '@ant-design/icons';
 
-import DashboardMenu from './DashboardMenu';
-import DashboardHeader from './DashboardHeader';
-import DashboardFooter from './Footer';
+import DashboardMenu from '../Common/SideMenu';
+import DashboardHeader from '../Common/Header';
+import DashboardFooter from '../Common/Footer';
 
 const { Content } = Layout;
 const { Title } = Typography;

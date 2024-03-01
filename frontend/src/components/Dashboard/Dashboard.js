@@ -3,10 +3,10 @@ import { Layout, Breadcrumb, Divider, Typography, Row, Col, Card, Button, Statis
 import { Link } from 'react-router-dom';
 import { DatabaseOutlined, HistoryOutlined } from '@ant-design/icons';
 
-import DashboardMenu from './DashboardMenu'; 
+import DashboardMenu from '../Common/SideMenu'; 
 import HomeStatistics from './HomeStatistics';
-import DashboardFooter from './Footer';
-import DashboardHeader from './DashboardHeader';
+import DashboardFooter from '../Common/Footer';
+import DashboardHeader from '../Common/Header';
 
 const { Content } = Layout;
 const { Title } = Typography;

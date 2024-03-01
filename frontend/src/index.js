@@ -8,14 +8,14 @@ import Annotations from './components/Searchable/Annotations';
 import Methods from './components/Searchable/Methods';
 import References from './components/Searchable/References';
 import Dashboard from './components/Dashboard/Dashboard';
-import Profile from './components/Dashboard/Profile';
-import Support from './components/Dashboard/SupportPage';
-import ActivityFeed from './components/Dashboard/ActivityFeed';
-import SettingsPage from './components/Dashboard/SettingsPage';
-import RegisterDatasetForm from './components/Dashboard/RegisterDatasetForm';
-import MetadataSearch from './components/Dashboard/MetadataSearch';
-import MetadataVisualization from './components/Dashboard/MetadataVisualization';
-import MetadataAnnotationForm from './components/Dashboard/MetadataAnnotationForm'; // Import MetadataAnnotationForm
+import Profile from './components/Users/Profile';
+import Support from './components/Tools/SupportPage';
+import ActivityFeed from './components/Tools/ActivityFeed';
+import SettingsPage from './components/Settings/SettingsPage';
+import RegisterDatasetForm from './components/Datasets/RegisterDatasetForm';
+import MetadataSearch from './components/Datasets/MetadataSearch';
+import MetadataVisualization from './components/Datasets/MetadataVisualization';
+import MetadataAnnotationForm from './components/Datasets/MetadataAnnotationForm'; // Import MetadataAnnotationForm
 import './index.css';
 
 ReactDOM.render(

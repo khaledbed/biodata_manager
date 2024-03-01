@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Breadcrumb, Table, Space, Button, Tag, Input, Card, Switch, Tooltip, Avatar, Divider, Modal } from 'antd';
 import { SearchOutlined, EyeOutlined, EditOutlined, DeleteOutlined, InfoCircleOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import DashboardMenu from '../Dashboard/DashboardMenu'; 
-import DashboardHeader from '../Dashboard/DashboardHeader'; 
-import DashboardFooter from '../Dashboard/Footer';
+import DashboardMenu from '../Common/SideMenu'; 
+import DashboardHeader from '../Common/Header'; 
+import DashboardFooter from '../Common/Footer';
 import { Link } from 'react-router-dom';
 import { getAllProjects } from '../../services/apiService';
 

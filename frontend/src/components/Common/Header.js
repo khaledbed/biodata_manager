@@ -3,7 +3,7 @@ import { Layout, Breadcrumb, Dropdown } from 'antd';
 import { BellOutlined } from '@ant-design/icons';
 import NotificationMenu from './NotificationMenu';
 import ProfileMenu from './ProfileMenu';
-import './DashboardHeader.css';
+import './Header.css';
 
 const { Header } = Layout;
 

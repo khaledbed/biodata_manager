@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Menu, Breadcrumb, Table, Space, Button, Input } from 'antd';
-import DashboardMenu from '../Dashboard/DashboardMenu'; 
+import DashboardMenu from '../Common/SideMenu'; 
 import { Link } from 'react-router-dom';
 import { getAllReferences } from '../../services/apiService';
 

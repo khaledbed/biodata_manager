@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb, Divider, Typography, Row, Col, Card, Button, Statistic, List, Avatar, Select, Input, Space } from 'antd';
 import { ClockCircleOutlined, SearchOutlined } from '@ant-design/icons';
 
-import DashboardMenu from './DashboardMenu'; 
-import DashboardFooter from './Footer';
-import DashboardHeader from './DashboardHeader';
+import DashboardMenu from '../Common/SideMenu'; 
+import DashboardFooter from '../Common/Footer';
+import DashboardHeader from '../Common/Header';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;

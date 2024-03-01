@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout, Breadcrumb, Typography } from 'antd';
-import DashboardMenu from './DashboardMenu';
-import DashboardHeader from './DashboardHeader';
-import DashboardFooter from './Footer';
+import DashboardMenu from '../Common/SideMenu';
+import DashboardHeader from '../Common/Header';
+import DashboardFooter from '../Common/Footer';
 import UISettingsPage from './UI_SettingsPage';
 import UserSettingsPage from './User_SettingsPage';
 import OtherSettingsPage from './Other_SettingsPage';

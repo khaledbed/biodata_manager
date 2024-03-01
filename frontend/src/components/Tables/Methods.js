@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Breadcrumb, Table, Space, Button, Input } from 'antd';
-import DashboardMenu from '../Dashboard/DashboardMenu'; 
+import DashboardMenu from '../Common/SideMenu'; 
 import { getAllMethods } from '../../services/apiService';
 
 const { Header, Content, Footer } = Layout;

@@ -1,22 +1,22 @@
-// MetadataAnnotationForm.js
+// src/components/RegisterDatasetForm.js
 
 import React, { useState } from 'react';
 import { Layout, Breadcrumb, Form, Input, Button, message } from 'antd';
-import DashboardMenu from './DashboardMenu';
-import { annotateMetadata } from '../../services/apiService';
+import DashboardMenu from '../Common/SideMenu';
+import { registerDataset } from '../../services/apiService';
 
 const { Header, Content, Footer } = Layout;
 
-const MetadataAnnotationForm = () => {
+const RegisterDatasetForm = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      await annotateMetadata(values);
-      message.success('Metadata annotation created successfully');
+      await registerDataset(values);
+      message.success('Dataset created successfully');
     } catch (error) {
-      message.error('Failed to create metadata annotation');
+      message.error('Failed to create dataset');
     }
     setLoading(false);
   };
@@ -33,33 +33,33 @@ const MetadataAnnotationForm = () => {
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-            <Breadcrumb.Item>Create Metadata Annotation</Breadcrumb.Item>
+            <Breadcrumb.Item>Register Dataset</Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-background dashboard-content">
-            <h2>Create Metadata Annotation</h2>
+            <h2>Register Dataset</h2>
             <Form
-              name="metadata-annotation-form"
+              name="register-dataset"
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               layout="vertical"
             >
               <Form.Item
-                label="Key"
-                name="key"
-                rules={[{ required: true, message: 'Please enter the key' }]}
+                label="Name"
+                name="name"
+                rules={[{ required: true, message: 'Please enter the dataset name' }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
-                label="Value"
-                name="value"
-                rules={[{ required: true, message: 'Please enter the value' }]}
+                label="Description"
+                name="description"
+                rules={[{ required: true, message: 'Please enter the dataset description' }]}
               >
-                <Input />
+                <Input.TextArea />
               </Form.Item>
               <Form.Item>
                 <Button type="primary" htmlType="submit" loading={loading}>
-                  Create Metadata Annotation
+                  Register Dataset
                 </Button>
               </Form.Item>
             </Form>
@@ -71,4 +71,4 @@ const MetadataAnnotationForm = () => {
   );
 };
 
-export default MetadataAnnotationForm;
+export default RegisterDatasetForm;

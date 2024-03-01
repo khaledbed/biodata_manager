@@ -1,22 +1,24 @@
-// src/components/RegisterDatasetForm.js
+// MetadataSearch.js
 
 import React, { useState } from 'react';
-import { Layout, Breadcrumb, Form, Input, Button, message } from 'antd';
-import DashboardMenu from './DashboardMenu';
-import { registerDataset } from '../../services/apiService';
+import { Layout, Breadcrumb, Form, Input, Button, Table, Space } from 'antd';
+import DashboardMenu from '../Common/SideMenu';
+import { getDatasetMetadata } from '../../services/apiService';
 
 const { Header, Content, Footer } = Layout;
 
-const RegisterDatasetForm = () => {
+const MetadataSearch = () => {
   const [loading, setLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [form] = Form.useForm();
 
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      await registerDataset(values);
-      message.success('Dataset created successfully');
+      const response = await getDatasetMetadata(values);
+      setSearchResults(response.datasets);
     } catch (error) {
-      message.error('Failed to create dataset');
+      console.error('Failed to search datasets by metadata:', error);
     }
     setLoading(false);
   };
@@ -24,6 +26,28 @@ const RegisterDatasetForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+
+  const columns = [
+    {
+      title: 'Dataset Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: () => (
+        <Space size="middle">
+          <Button type="primary" size="small">View</Button>
+        </Space>
+      ),
+    },
+  ];
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -33,36 +57,36 @@ const RegisterDatasetForm = () => {
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-            <Breadcrumb.Item>Register Dataset</Breadcrumb.Item>
+            <Breadcrumb.Item>Search Datasets by Metadata</Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-background dashboard-content">
-            <h2>Register Dataset</h2>
+            <h2>Search Datasets by Metadata</h2>
             <Form
-              name="register-dataset"
+              form={form}
+              name="metadata-search-form"
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
-              layout="vertical"
+              layout="inline"
             >
               <Form.Item
-                label="Name"
-                name="name"
-                rules={[{ required: true, message: 'Please enter the dataset name' }]}
+                label="Key"
+                name="key"
               >
                 <Input />
               </Form.Item>
               <Form.Item
-                label="Description"
-                name="description"
-                rules={[{ required: true, message: 'Please enter the dataset description' }]}
+                label="Value"
+                name="value"
               >
-                <Input.TextArea />
+                <Input />
               </Form.Item>
               <Form.Item>
                 <Button type="primary" htmlType="submit" loading={loading}>
-                  Register Dataset
+                  Search
                 </Button>
               </Form.Item>
             </Form>
+            <Table dataSource={searchResults} columns={columns} loading={loading} />
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>BiodAta manAger  ©2024 Created by MBD Team</Footer>
@@ -71,4 +95,4 @@ const RegisterDatasetForm = () => {
   );
 };
 
-export default RegisterDatasetForm;
+export default MetadataSearch;
