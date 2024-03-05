@@ -7,6 +7,7 @@ import Samples from './components/Searchable/Samples';
 import Annotations from './components/Searchable/Annotations';
 import Methods from './components/Searchable/Methods';
 import References from './components/Searchable/References';
+import Datasets from './components/Searchable/Datasets';
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Users/Profile';
 import Support from './components/Tools/SupportPage';
@@ -15,7 +16,7 @@ import SettingsPage from './components/Settings/SettingsPage';
 import RegisterDatasetForm from './components/Datasets/RegisterDatasetForm';
 import MetadataSearch from './components/Metadata/MetadataSearch';
 import MetadataVisualization from './components/Metadata/MetadataVisualization';
-import MetadataAnnotationForm from './components/Metadata/MetadataAnnotationForm'; // Import MetadataAnnotationForm
+import MetadataAnnotationForm from './components/Metadata/MetadataAnnotationForm';
 import './index.css';
 
 ReactDOM.render(
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path="/dashboard/annotations" element={<Annotations />} /> 
         <Route path="/dashboard/methods" element={<Methods />} />  
         <Route path="/dashboard/references" element={<References />} /> 
+        <Route path="/dashboard/datasets" element={<Datasets />} /> 
         <Route path="/dashboard/register-dataset" element={<RegisterDatasetForm />} /> 
         <Route path="/dashboard/metadata-search" element={<MetadataSearch />} /> 
         <Route path="/dashboard/metadata-visualization" element={<MetadataVisualization />} /> 

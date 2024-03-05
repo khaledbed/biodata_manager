@@ -1,3 +1,5 @@
+// ProfileMenu.js
+
 import React, { useState } from 'react';
 import { Avatar, Menu, Dropdown } from 'antd';
 import { UserOutlined, LogoutOutlined, SettingOutlined, ProfileOutlined, BellOutlined, NotificationOutlined, ReadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
@@ -61,7 +63,7 @@ const ProfileMenu = () => {
   );
 
   return (
-    <Dropdown overlay={menu} trigger={['click']} visible={menuVisible} onVisibleChange={toggleMenu} placement="bottomRight">
+    <Dropdown overlay={menu} trigger={['click']} open={menuVisible} onOpenChange={toggleMenu} placement="bottomRight">
       <div className="dashboard-menu profile-dropmenu">
         <Avatar size={36} icon={<UserOutlined />} style={{ backgroundColor: '#1890ff', cursor: 'pointer' }} />
       </div>

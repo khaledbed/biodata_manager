@@ -296,6 +296,15 @@ export const annotateMetadata = async (datasetId, metadata) => {
   }
 };
 
+export const getAllDatasets = async () => {
+  try {
+    const response = await apiService.get('/datasets/');
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
 export const searchDatasets = async (query) => {
   try {
     const response = await apiService.get(`/datasets/search?query=${query}`);
@@ -308,6 +317,16 @@ export const searchDatasets = async (query) => {
 export const getDatasetMetadata = async (datasetId) => {
   try {
     const response = await apiService.get(`/datasets/${datasetId}/metadata`);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+
+export const getDatasetById = async (datasetId) => {
+  try {
+    const response = await apiService.get(`/datasets/${datasetId}`);
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -349,3 +368,4 @@ export const deleteMetadataFromDataset = async (datasetId) => {
     throw error.response.data;
   }
 };
+

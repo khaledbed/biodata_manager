@@ -20,7 +20,7 @@ const DashboardMenu = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const getDefaultSelectedKey = () => {
+  const getSelectedKey = () => {
     switch (currentPath) {
       case '/dashboard':
         return '1';
@@ -50,7 +50,7 @@ const DashboardMenu = () => {
   return (
     <Sider collapsible>
       <div className="logo" />
-      <Menu theme="dark" defaultSelectedKeys={[getDefaultSelectedKey()]} mode="inline">
+      <Menu theme="dark" selectedKeys={[getSelectedKey()]} mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/dashboard">Home</Link>
         </Menu.Item>

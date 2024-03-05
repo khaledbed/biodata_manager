@@ -1,30 +1,26 @@
 import React, { useState } from 'react';
-import { Menu, Dropdown, Badge, Typography, Divider } from 'antd';
-import { BellOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { Avatar, Menu, Dropdown, Typography } from 'antd';
+import { UserOutlined, BellOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const { Text } = Typography;
 
 const NotificationMenu = () => {
-  const [notificationCount, setNotificationCount] = useState(3);
-  const [notificationVisible, setNotificationVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
-  const toggleNotification = () => {
-    setNotificationVisible(!notificationVisible);
-    // Reset notification count when the menu is opened
-    if (notificationVisible) {
-      setNotificationCount(0);
-    }
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
   };
 
-  const handleNotificationMenuClick = ({ key }) => {
-    // Handle notification menu item clicks here
-    console.log('Clicked on notification menu item:', key);
-    // Close the notification menu after clicking
-    setNotificationVisible(false);
+  const handleMenuClick = (e) => {
+    // Handle menu item clicks here
+    console.log('Notification menu item clicked:', e.key);
+    // Close the menu after clicking
+    setMenuVisible(false);
   };
 
   const notificationMenu = (
-    <Menu onClick={handleNotificationMenuClick} className="dashboard-menu notification-menu">
+    <Menu onClick={handleMenuClick}>
       <Menu.Item key="1" icon={<ExclamationCircleOutlined style={{ color: '#FF4D4F' }} />}>
         <Text strong>New data entry added</Text>
         <Text type="secondary" style={{ fontSize: '12px' }}>2 minutes ago</Text>
@@ -37,19 +33,16 @@ const NotificationMenu = () => {
         <Text strong>Method updated</Text>
         <Text type="secondary" style={{ fontSize: '12px' }}>Yesterday</Text>
       </Menu.Item>
-      <Divider style={{ margin: '8px 0', borderColor: '#f0f0f0' }} />
       <Menu.Item key="4" className="view-all" style={{ padding: '12px 16px', textAlign: 'center', color: '#1890FF' }}>
-        <a href="#">View All Notifications</a>
+        <Link to="/notifications">View All Notifications</Link>
       </Menu.Item>
     </Menu>
   );
 
   return (
-    <Dropdown overlay={notificationMenu} trigger={['click']} visible={notificationVisible} onVisibleChange={toggleNotification} placement="bottomCenter">
-      <div className="dashboard-menu notification">
-        <Badge count={notificationCount} overflowCount={99} style={{ marginTop: -6, marginLeft: 6 }}>
-          <BellOutlined className="bell-icon" />
-        </Badge>
+    <Dropdown overlay={notificationMenu} trigger={['click']} open={menuVisible} onVisibleChange={toggleMenu} placement="bottomRight">
+      <div className="notification-menu">
+        <BellOutlined style={{ fontSize: '20px', color: '#1890FF', cursor: 'pointer' }} />
       </div>
     </Dropdown>
   );
