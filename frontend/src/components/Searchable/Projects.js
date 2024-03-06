@@ -7,7 +7,7 @@ import DashboardFooter from '../Common/Footer';
 import { Link } from 'react-router-dom';
 import { getAllProjects } from '../../services/apiService';
 
-import './searchablePages.css'; // Import the CSS file
+import './searchablePages.css';
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;

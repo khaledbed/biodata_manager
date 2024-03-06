@@ -1,5 +1,3 @@
-// src/components/Dashboard/Counts.js
-
 import React, { useEffect, useState } from 'react';
 import { getProjectCount, getSampleCount } from '../../services/apiService';
 

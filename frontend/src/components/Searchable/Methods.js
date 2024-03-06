@@ -5,9 +5,8 @@ import DashboardMenu from '../Common/SideMenu';
 import DashboardHeader from '../Common/Header'; 
 import DashboardFooter from '../Common/Footer';
 import { Link } from 'react-router-dom';
-import { getAllMethods } from '../../services/apiService'; // Assuming you have a service function to fetch methods
-
-import './searchablePages.css'; // Import the CSS file
+import { getAllMethods } from '../../services/apiService'; 
+import './searchablePages.css';
 
 const { Header, Content } = Layout;
 const { Search } = Input;

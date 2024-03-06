@@ -1,5 +1,3 @@
-// ProfileMenu.js
-
 import React, { useState } from 'react';
 import { Avatar, Menu, Dropdown } from 'antd';
 import { UserOutlined, LogoutOutlined, SettingOutlined, ProfileOutlined, BellOutlined, NotificationOutlined, ReadOutlined, QuestionCircleOutlined } from '@ant-design/icons';

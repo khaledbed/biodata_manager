@@ -31,9 +31,10 @@ const Home = () => {
   const handleLogin = async (values) => {
     try {
       const response = await login(values);
-      if (response && response.data) {
-        console.log(response.data);
+      if (response && response.access_token) {
+        console.log(response.access_token);
         message.success('Login successful');
+        window.location.href = '/dashboard';
       } else {
         throw new Error('Invalid response received from server');
       }
@@ -41,7 +42,6 @@ const Home = () => {
       console.error('Login error:', error);
       message.error(error.message || 'Login failed');
     }
-    window.location.href = '/dashboard';
   };
 
   const handleRegister = async (values) => {

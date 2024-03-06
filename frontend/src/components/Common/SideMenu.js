@@ -11,7 +11,7 @@ import {
   DatabaseOutlined,
   SearchOutlined,
   PieChartOutlined,
-  EditOutlined
+  EditOutlined,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -43,6 +43,7 @@ const DashboardMenu = () => {
       case '/dashboard/metadata-annotation-form':
         return '10';
       default:
+        console.warn(`Unhandled path: ${currentPath}`);
         return '1';
     }
   };
@@ -54,6 +55,7 @@ const DashboardMenu = () => {
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/dashboard">Home</Link>
         </Menu.Item>
+        {/* Add additional menu items with appropriate keys and icons here, maintaining original code */}
         <Menu.Item key="2" icon={<ExperimentOutlined />}>
           <Link to="/dashboard/projects">Projects</Link>
         </Menu.Item>
